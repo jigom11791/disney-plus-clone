@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useParams } from "react-router-dom";
+import db from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 function Detail() {
+
+  const { id } = useParams();
+  
+  useEffect(()=>{
+    const ref = doc(db, "movies", id);
+  });
+
   return (
       <Container>
         <Background>
